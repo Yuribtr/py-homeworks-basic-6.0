@@ -122,11 +122,15 @@ for animal in farm:
     print(animal.type + ' "' + animal.name + '" ' + animal.make_specific_class_actions())
 
 total_weight = 0
-# setting first animal as heaviest by default
-heaviest_animal = farm[0] if len(farm) > 0 else None
-for animal in farm:
-    total_weight += animal.weight
-    heaviest_animal = animal if heaviest_animal.weight < animal.weight else heaviest_animal
 
-print(f'\nОбщий вес животных на ферме: {total_weight}')
-print(f'Самое тяжелое животное: {heaviest_animal.name}')
+if len(farm) > 0:
+    # setting first animal as heaviest by default
+    heaviest_animal = farm[0] if len(farm) > 0 else None
+    for animal in farm:
+        total_weight += animal.weight
+        heaviest_animal = animal if heaviest_animal.weight < animal.weight else heaviest_animal
+
+    print(f'\nОбщий вес животных на ферме: {total_weight}')
+    print(f'Самое тяжелое животное: {heaviest_animal.name}')
+else:
+    print(f'\nНа ферме никого нет!')
