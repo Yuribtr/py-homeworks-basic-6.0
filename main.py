@@ -78,11 +78,14 @@ class Cow(MilkingAnimal):
         return 'му-му'
 
 
-class Sheep(WoolenAnimal):
+class Sheep(WoolenAnimal, MilkingAnimal):
     type = 'Овца'
 
     def make_sound(self):
         return 'бе-бе'
+
+    def make_specific_class_actions(self):
+        return super().do_shave() + ', ' + super().do_milk() + ' и делает ' + self.make_sound()
 
 
 class Hen(LayingAnimal):
